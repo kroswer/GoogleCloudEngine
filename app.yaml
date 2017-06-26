@@ -1,5 +1,12 @@
-runtime: php
-env: flex
+runtime: php55
+#env: flex
+
+handlers:
+- url: /node_modules
+  static_dir: node_modules
+
+- url: /.*
+  script: index.php
 
 #[START env]
 env_variables:
