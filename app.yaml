@@ -1,0 +1,17 @@
+runtime: php
+env: flex
+
+#[START env]
+env_variables:
+    # Replace USER, PASSWORD, DATABASE, and CONNECTION_NAME with the
+    # values obtained when configuring your Cloud SQL instance.
+    MYSQL_USER: root
+    MYSQL_PASSWORD: amdk
+    MYSQL_DSN: "mysql:dbname=guestbook;unix_socket=/cloudsql/tonal-carving-171904:us-central1:datos1"
+#[END env]
+
+#[START cloudsql_settings]
+# Use the connection name obtained when configuring your Cloud SQL instance.
+beta_settings:
+    cloud_sql_instances: "tonal-carving-171904:us-central1:datos1"
+#[END cloudsql_settings]
