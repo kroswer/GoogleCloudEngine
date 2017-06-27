@@ -1,40 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Vamos a ver</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-    <!-- Bootstrap -->
+    <title>Cover Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    </head>
-    <body>
-        {% if results %}
-            <h2>Guestbook Entries</h2>
 
-            {% for row in results %}
-                <div><strong> {{ row.guestName }} </strong> wrote <br> {{ row.content }}</div>
-            {% endfor %}
-        {% endif %}
+    <!-- Custom styles for this template -->
+    <link href="node_modules/bootstrap/dist/css/cover.css" rel="stylesheet">
 
-        <h2>Sign the Guestbook</h2>
+
+    
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Entradas</h3>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Escritura a una Base de Datos</h1>
+	    <br>
+	    <p>Un proyecto simple utilizando las herramientas de Google Cloud Platform, conectando una BD SQL con App Engine. </p>
+	    <p>Codigo en <a href="https://github.com/kroswer/GoogleCloudEngine">https://github.com/kroswer/GoogleCloudEngine</a>
+            {% if results %}
+            <div class="panel panel-default"> 
+              <div class="panel-heading">Información</div> 
+                <table class="table"> 
+                  <thead> <tr> <th><p style="color:black;">Nombre</p></th> <th><p style="color:black;">Mensaje</p></th> </thead> 
+                  {% for row in results %}
+                  <tbody> <tr> <td scope="nombre"><p style="color:black;">{{ row.guestName }}</p></td> <td><p style="color:black;">{{ row.content }}</p></td> </tr>  </tbody> 
+		  {% endfor %}
+                </table> 
+            </div>
+            {% endif %}
+
+      	    <p>Porfavor, envia algo a la base de datos.</p>
         <form action="/" method="post">
-            <div>Name: <input name="name" /></div>
-            <div><textarea name="content" rows="3" cols="60"></textarea></div>
-            <div><input type="submit" value="Sign Guestbook"></div>
+            <div class="col-lg-5"><input name="name" type="text" class="form-control" aria-label="..." placeholder="Nombre"></div>
+            <br><br><br>
+            <div class="col-lg-10"><textarea name="content" rows="3" cols="60" type="text" class="form-control" aria-label="..." placeholder="Mensaje"></textarea></div>
+            <br><br><br><br><br>
+            <button  class="btn btn-default btn-lg" type="submit" >Enviar</button>
         </form>
-	
-	<ul class="nav nav-pills">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>
-	  <li role="presentation"><a href="#">Profile</a></li>
-	  <li role="presentation"><a href="#">Messages</a></li>
-	</ul>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-    	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
 </html>
+
